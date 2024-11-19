@@ -1,0 +1,44 @@
+@import '../../main';
+
+.mainBlock {
+    @extend .scrollbar;
+    
+    background-image: url('../../../public/assets/bg.png');
+    background-size: cover;
+
+    min-height: calc(100dvh - 2rem);
+    width: 100svw;
+
+    color: #fff;
+
+    padding-bottom: 2rem;
+}
+
+.errorMainTitle {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    padding-top: 6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 750px) {
+    .errorMainTitle {
+        font-size: 1.5rem;
+        padding-top: 6rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .mainBlock {
+        background-image: url('../../../public/assets/bg-m.png');
+        padding-bottom: 1rem;
+        min-height: calc(100dvh - 1rem);
+    }
+
+    .errorMainTitle {
+        padding-top: 8rem;
+    
+    }
+}

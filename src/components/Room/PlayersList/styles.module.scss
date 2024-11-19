@@ -1,0 +1,99 @@
+@import '../../../main';
+
+.playerList {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+
+    li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 10rem;
+        height: 2.5rem;
+        padding: 1rem;
+        margin-right: 2rem;
+
+        background-color: $glass-bg;
+        backdrop-filter: blur(3px);
+        border-radius: 0.5rem;
+
+        text-align: center;
+
+        &.emptyItem {
+            background-color: #0002;
+            color: #ccc;
+        }
+
+        &.activePlayer {
+            background-color: #0d4c5780;
+        }
+    }
+}
+
+.playerCount {
+    font-weight: 600;
+    color: #ddd;
+}
+
+@media screen and (max-width: 1400px) {
+    .playerList {
+        overflow-x: auto;
+        padding: 0 0 0.75rem 1rem;
+
+        li {
+            min-width: 180px;
+            height: 2.5rem;
+            padding: 0.75rem;
+            margin-right: 1rem;
+        }
+
+        &::-webkit-scrollbar {
+            height: 0.5rem;
+        }
+    
+        &::-webkit-scrollbar-track {
+            background-color: #FFF2;
+            border-radius: 0.2rem;
+            margin: 0 0.5rem;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background-color: $button-bg;
+            border-radius: 0.2rem;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .playerList {
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding-left: 0;
+
+        font-size: 0.85rem;
+    
+        li {
+            width: 9rem;
+            min-width: 0;
+            height: 2.5rem;
+            padding: 0.5rem;
+            margin-right: 0;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .playerList {
+        li {
+            width: calc(48% - 0.4rem);
+            height: 2.5rem;
+            padding: 0.2rem;
+            margin-right: 0;
+            margin-bottom: 1rem;
+        }
+    }
+}

@@ -1,0 +1,101 @@
+@import '../../main';
+
+.mainBlock {
+    @extend .scrollbar;
+    
+    background-image: url('../../../public/assets/bg.png');
+    background-size: cover;
+
+    min-height: 100dvh;
+    width: 100dvw;
+
+    color: #fff;
+
+    main {
+        padding: 6rem 0 2rem;
+    }
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 2rem 3rem;
+
+    background-color: $glass-bg;
+    backdrop-filter: blur(3px);
+
+    h1 {
+        margin: 0;
+        letter-spacing: 2px;
+    }
+
+    .headerLogoutBlock {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        strong {
+            margin-right: 2rem;
+            font-size: 1.25rem;
+        }
+
+        button {
+            padding: 0.75rem 1rem;
+
+            @extend .button;
+        }
+    }
+}
+
+.loadPendingTitle {
+    text-align: center;
+
+    margin-top: 5rem;
+
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 720px) {
+    .mainBlock {
+        main {
+            padding: 2rem 0;
+        }
+    }
+    
+    .header {
+        padding: 1.5rem 1rem;
+    
+        h1 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+    
+        .headerLogoutBlock {
+            strong {
+                margin-right: 0.5rem;
+                font-size: 0.9rem;
+            }
+    
+            button {
+                padding: 0.5rem 0.75rem;
+    
+                @extend .button;
+            }
+        }
+    }
+    
+    .loadPendingTitle {
+        margin-top: 2rem;
+    
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .mainBlock {
+        background-image: url('../../../public/assets/bg-m.png');
+    }
+}

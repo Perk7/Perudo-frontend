@@ -1,0 +1,56 @@
+$button-bg: #0d4c57;
+$button-bg_disabled: #40838d;
+$button-bg_hover: #0e3238;
+
+$glass-bg: #FFFFFF20;
+
+.button {
+    border: 0;
+    border-radius: 0.5rem;
+
+    color: #FFF;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+
+    background-color: $button-bg;
+    transition: .5s;
+
+    &:disabled {
+        color: #ccc;
+        background-color: $button-bg_disabled;
+    }
+
+    &:hover:not(:disabled) {
+        transform: scale(1.05);
+    }
+}
+
+.input {
+    border: 0;
+    
+    padding: 1rem;
+
+    font-family: "Montserrat", sans-serif;
+
+    transition: .5s;
+
+    &:focus {
+        font-weight: 600;
+    }
+}
+
+.scrollbar {
+    &::-webkit-scrollbar {
+        width: 0.5em;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #FFF2;
+        border-radius: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $button-bg;
+        border-radius: 0.5rem;
+    }
+}

@@ -1,0 +1,105 @@
+@import '../../../main';
+
+.authBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 25%;
+    min-width: 375px;
+    margin: 5rem auto;
+    padding: 2rem 0;
+    border-radius: 1rem;
+
+    background-color: $glass-bg;
+    backdrop-filter: blur(3px);
+
+    .authHeading {
+        margin: 0 0 2rem;
+    }
+    
+    .authForm {
+        background-color: #FFF;
+        width: 85%;
+
+        border-radius: 1rem;
+
+        display: flex;
+        justify-content: space-evenly;
+
+        input {
+            background-color: #fff0;
+            width: 70%;
+
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+
+            @extend .input
+        }
+
+        button {
+            width: 25%;
+
+            border-top-right-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            
+            @extend .button;
+        }
+    }
+
+    .authAlert {
+        color: #b10707;
+        text-align: center;
+        width: 80%;
+        font-weight: 600;
+        font-size: 1rem;
+
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .authBlock {
+        width: 100%;
+        min-width: 0;
+        margin: 3rem auto;
+        padding: 3rem 0;
+        border-radius: 0;
+    
+        .authHeading {
+            margin: 0 0 2rem;
+        }
+        
+        .authForm {
+            background-color: #FFF0;
+            width: 85%;
+    
+            border-radius: 0;
+    
+            display: flex;
+            flex-direction: column;
+    
+            input {
+                background-color: #fff;
+                width: auto;
+    
+                border-radius: 0.5rem;
+    
+                @extend .input
+            }
+    
+            button {
+                width: 50%;
+                height: 2.5rem;
+                margin-top: 1rem;
+                align-self: center;
+
+                border-radius: 0.5rem;
+                
+                @extend .button;
+            }
+        }
+    }    
+}

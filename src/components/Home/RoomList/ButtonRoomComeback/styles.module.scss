@@ -1,0 +1,58 @@
+@import '../../../../main.scss';
+
+.comeBack__ {
+
+    &button {
+        @extend .button;
+        display: flex;
+        justify-content: space-between;
+
+        width: 85%;
+        margin-bottom: 1rem;
+        padding: 1rem 2rem;
+
+        span {
+            font-size: 1rem;
+        }
+    }
+
+    &title {
+        width: 50%;
+        text-align: left;
+    }
+
+    &icon {
+        display: none;
+    }
+
+    &roominfoBlock {
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .comeBack__ {
+
+        &button {
+            width: 100%;
+            padding: 1rem;
+        }
+
+        &title {
+            display: none;
+        }
+    
+        &icon {
+            display: flex;
+            align-items: center;
+        }
+    
+        &roominfoBlock {
+            width: 85%;
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}

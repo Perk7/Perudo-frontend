@@ -1,0 +1,120 @@
+@import '../../../main';
+
+.roomList__ {
+    &block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: calc(650px - 4rem);
+        margin: 0 auto;
+        padding: 2rem;
+
+        border-radius: 0.5rem;
+
+        background-color: $glass-bg;
+        backdrop-filter: blur(3px);
+    }
+
+    &title {
+        text-align: center;
+    }
+
+    &list {
+        @extend .scrollbar; 
+
+        margin: 0;
+        padding: 0;
+        padding-right: 0.75rem;
+        list-style-type: none;
+        width: 65%;
+        min-height: 5rem;
+        max-height: calc(100dvh - 30rem);
+        overflow-y: auto;
+        overflow-x: visible;
+
+        button {
+            @extend .button;
+            display: flex;
+            justify-content: space-around;
+
+            width: 100%;
+
+            padding: 1rem 2rem;
+            margin-bottom: 1rem;
+
+            span {
+                font-size: 1rem;
+            }
+
+            &:hover:not(:disabled) {
+                transform: none;
+                background-color: $button-bg_hover;
+            }
+        }
+
+        li:last-child button {
+            margin-bottom: 0;
+        }
+    }
+
+    &searchField {
+        @extend .input;
+
+        width: 80%;
+        border-radius: 0.5rem
+    }
+
+    &createBtn {
+        @extend .button;
+
+        padding: 0.75rem 2.5rem;
+        margin: 1.5rem 0;
+
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 675px) {
+    .roomList__ {
+        &block {
+            width: calc(90% - 4rem);
+        }
+
+        &list {
+            width: 85%;
+            min-height: 5rem;
+            max-height: calc(100dvh - 20rem);
+            padding-right: 0.25rem;
+            
+            button {
+                width: 100%;
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .roomList__ {
+        &block {
+            width: calc(85% - 4rem);
+        }
+    
+        &list {
+            width: 100%;
+        }
+
+        &title {
+            font-size: 1.25rem;
+        }
+        
+        &searchField {
+            width: 100%;
+        }
+    
+        &createBtn {
+            margin: 1.25rem 0;
+        }
+    }
+}

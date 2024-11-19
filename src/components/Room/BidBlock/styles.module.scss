@@ -1,0 +1,238 @@
+@import '../../../main';
+
+.gameBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 60%;
+    min-height: 28rem;
+    max-height: calc(100dvh - 10rem);
+    overflow-y: auto;
+    margin: 0 auto;
+    padding: 2rem;
+
+    border-radius: 0.5rem;
+
+    background-color: $glass-bg;
+    backdrop-filter: blur(3px);
+}
+
+.diceImage {
+    width: 5rem;
+}
+
+.gameInfoTitle {
+    font-size: 1.25rem;
+    display: flex;
+    font-weight: 600;
+    align-items: center;
+
+    strong {
+        font-size: 2rem;
+        margin-left: 1rem;
+    }
+}
+
+.stepTitle {
+    font-size: 1.5rem;
+}
+
+.roomBid__ {
+    &fields {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        width: 60%;
+
+        &__block {
+            display: flex;
+            align-items: center;
+
+            button {
+                @extend .button;
+                width: 3rem;
+                height: 3rem;
+
+                font-size: 2rem;
+            }
+
+            img {
+                width: 5rem;
+                padding: 0 0.5rem;
+            }
+
+            span {
+                padding: 0 0.25rem;
+                width: 5rem;
+                text-align: center;
+
+                font-size: 4rem;
+                font-weight: bold;
+            }
+        }   
+    }
+
+    &btns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        width: 60%;
+        margin-top: 3rem;
+
+        button {
+            @extend .button;
+            
+            width: 14rem;
+            height: 3rem;
+
+            font-size: 1.25rem;
+        }
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .gameBlock {
+        width: 80%;
+        padding: 1.5rem;
+    }
+    
+    .roomBid__ {
+        &fields {
+            width: 75%;
+    
+            &__block {
+                justify-content: space-around;
+            }   
+        }
+    
+        &btns {
+            width: 75%;
+            margin-top: 2rem;
+        }
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .gameBlock {
+        width: 85%;
+    }
+    
+    .roomBid__ {
+        &fields {
+            width: 90%;
+        }
+    
+        &btns {
+            width: 90%;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .gameBlock {
+        width: 90%;
+    }
+    
+    .roomBid__ {
+        &fields {
+            width: 100%;
+        }
+    
+        &btns {
+            width: 100%;
+        }
+    }
+}   
+
+@media screen and (max-width: 500px) {
+    .gameBlock {
+        width: calc(100% - 2rem);
+
+        min-height: 10rem;
+
+        padding: 1rem;
+    
+        border-radius: 0;
+    }
+    
+    .diceImage {
+        width: 3.25rem;
+    }
+    
+    div.gameInfoTitle {
+        font-size: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        
+        span {
+            margin-bottom: 0.5rem;
+        }
+
+        strong {
+            font-size: 1.5rem;
+            margin-left: 0.5rem;
+        }
+    }
+
+    h2.gameInfoTitle {
+        font-size: 1.1rem;
+    
+        strong {
+            font-size: 1.75rem;
+            margin-left: 0.5rem;
+        }
+    }
+    
+    .stepTitle {
+        font-size: 1.25rem;
+        margin: 0.5rem 0;
+    }
+    
+    .roomBid__ {
+        &fields {
+            width: 100%;
+    
+            &__block {
+                button {
+                    width: 2rem;
+                    height: 2rem;
+    
+                    font-size: 1.5rem;
+                }
+    
+                img {
+                    width: 3rem;
+                    padding: 0 0.2rem;
+                }
+    
+                span {
+                    padding: 0 0.2rem;
+                    width: 3rem;
+    
+                    font-size: 2.5rem;
+                }
+            }   
+        }
+    
+        &btns {
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 2rem;
+    
+            button {
+                width: 60%;
+                height: 2.5rem;
+    
+                font-size: 1rem;
+
+                &:last-child {
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+}
