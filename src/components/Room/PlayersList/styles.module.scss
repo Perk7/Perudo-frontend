@@ -1,6 +1,9 @@
 @import '../../../main';
 
 .playerList {
+    @extend .scrollbar;
+    position: relative;
+    z-index: 10;
     list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -28,7 +31,8 @@
         }
 
         &.activePlayer {
-            background-color: #0d4c5780;
+            //background-color: #0d4c5780;
+            background-color: #3f2121;
         }
     }
 }
@@ -72,6 +76,7 @@
         justify-content: space-around;
         flex-wrap: wrap;
         padding-left: 0;
+        max-height: 8.5rem;
 
         font-size: 0.85rem;
     
@@ -82,12 +87,18 @@
             padding: 0.5rem;
             margin-right: 0;
             margin-bottom: 1rem;
+
+            &:last-child, &:nth-last-child(2) {
+                margin-bottom: 0;
+            }
         }
     }
 }
 
 @media screen and (max-width: 330px) {
     .playerList {
+        max-height: 8rem;
+
         li {
             width: calc(48% - 0.4rem);
             height: 2.5rem;

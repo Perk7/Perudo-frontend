@@ -2,6 +2,7 @@ import { Room as RoomType } from 'types';
 import webSocket from 'socket';
 
 import styles from './styles.module.scss'
+import { calculateProbability } from './probabilities';
 
 interface props {
     gameState: RoomType,
@@ -83,13 +84,23 @@ export default function BidBLock({ gameState, watcherStatus, currentBid, setCurr
         }
     }
 
-    function doubtDisabledStatus() {
+    function doubtDisabledStatus(): boolean {
         return !(gameState.game?.currentBid?.count && gameState.game?.currentBid?.value)
     }
 
-    function raiseDisabledStatus() {
+    function raiseDisabledStatus(): boolean {
         if (!gameState.game?.currentBid) return false
         return currentBid.count <= gameState.game.currentBid.count && currentBid.value <= dicesIndexes.indexOf(gameState.game.currentBid.value)
+    }
+
+    function getProbability(count: number, value: number): number {
+        const dicesPlayer = gameState.game?.players.find(player => player?.id === userId)?.dices
+        let otherDicesCount = 0
+        for (let player of gameState.game?.players || []) otherDicesCount += player.diceCount
+        if (!dicesPlayer) return 0
+        otherDicesCount -= dicesPlayer.length
+
+        return calculateProbability(dicesPlayer, otherDicesCount, count, value)
     }
 
     if (!gameState.game) return null
@@ -151,6 +162,12 @@ export default function BidBLock({ gameState, watcherStatus, currentBid, setCurr
                         <button disabled={raiseDisabledStatus()} onClick={handleRaiseBid}>Сделать ставку</button>
                         <button disabled={doubtDisabledStatus()} onClick={handleDoubt}>Не верю</button>
                     </div>
+                    {(gameState.probs && !doubtDisabledStatus()) && 
+                        <h2 className={styles.roomBid__probs}>Шанс для "не верю" : {(100 - getProbability(gameState.game.currentBid.count, gameState.game.currentBid.value)).toFixed(2)} %</h2>
+                    }
+                    {(gameState.probs && !raiseDisabledStatus()) && 
+                        <h2 className={styles.roomBid__probs}>Шанс для ставки : {getProbability(currentBid.count, dicesIndexes[currentBid.value])} %</h2>
+                    }
                 </>
             )}
         </div>

@@ -116,6 +116,7 @@ export default function Room() {
 
     return (
         <div className={styles.mainBlock}>
+        <div className={styles.snow}></div>
         {errorNotification
             ? <h1 className={styles.errorMainTitle}>{errorNotification}</h1>
             : <>

@@ -35,6 +35,7 @@ export default function Home() {
 
     return (
         <div className={styles.mainBlock}>
+            <div className={styles.snow}></div>
             <header className={styles.header}>
                 <h1>Перудо</h1>
                 {authorized && <div className={styles.headerLogoutBlock}>

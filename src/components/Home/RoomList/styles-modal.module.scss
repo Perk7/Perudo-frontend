@@ -61,7 +61,7 @@
         }
 
         &alert {
-            color: #b10707;
+            color: $error-color;
             font-weight: 600;
             font-size: 1rem;
             width: 80%;
@@ -74,6 +74,41 @@
             @extend .button;
             
             padding: 0.75rem 2rem;
+        }
+
+        &checkbox {
+            -webkit-appearance: none;
+            appearance: none;
+            margin: 0;
+          
+            width: 2.5em;
+            height: 2.5em;
+            background-color: #fff;
+            border-radius: 0.25em;
+            transform: translateY(-0.075em);
+          
+            display: grid;
+            place-content: center;
+
+            &::before {
+                content: "";
+                width: 1.5em;
+                height: 1.5em;
+                clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+                transform: scale(0);
+                transform-origin: bottom left;
+                transition: 120ms transform ease-in-out;
+                background-color: $button-bg;
+            }
+              
+            &:checked::before {
+                transform: scale(1);
+            }
+              
+            &:focus {
+                outline: 0;
+                outline-offset: max(2px, 0.15em);
+            }
         }
     }
 }
@@ -98,7 +133,6 @@
             }
     
             &numBlock {
-                justify-content: space-around;
                 
                 width: 65%;
                 margin-top: 1rem;
@@ -150,6 +184,16 @@
     
             &alert {
                 width: 100%;
+            }
+
+            &checkbox {
+                width: 2em;
+                height: 2em;
+
+                &::before {
+                    width: 1.25em;
+                    height: 1.25em;
+                }
             }
         }
     }

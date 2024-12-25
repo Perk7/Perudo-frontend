@@ -11,7 +11,7 @@
         padding: 2rem;
 
         border-radius: 0.5rem;
-
+        box-shadow: 0px 0px 41px 13px rgba(87,67,114, 0.38);
         background-color: $glass-bg;
         backdrop-filter: blur(3px);
     }
@@ -36,7 +36,7 @@
         button {
             @extend .button;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
 
             width: 100%;
 
@@ -45,6 +45,8 @@
 
             span {
                 font-size: 1rem;
+                display: flex;
+                align-items: center;
             }
 
             &:hover:not(:disabled) {
@@ -56,6 +58,12 @@
         li:last-child button {
             margin-bottom: 0;
         }
+    }
+
+    &probsVisible {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-right: 1rem;
     }
 
     &searchField {
@@ -98,7 +106,8 @@
 @media screen and (max-width: 420px) {
     .roomList__ {
         &block {
-            width: calc(85% - 4rem);
+            width: calc(85% - 2rem);
+            padding: 1rem;
         }
     
         &list {
@@ -110,7 +119,7 @@
         }
         
         &searchField {
-            width: 100%;
+            width: 90%;
         }
     
         &createBtn {

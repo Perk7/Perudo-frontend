@@ -20,7 +20,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#3faa80",
-  "background_color": "#239e6e",
+  "theme_color": "#60465b",
+  "background_color": "#60465b",
   "description": "Perudo multiplayer game"
 }

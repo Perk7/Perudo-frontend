@@ -17,6 +17,7 @@ export interface Room {
     name: string;
     password: string,
     number: number,
+    probs: boolean,
 
     game: Game | null
 }
@@ -28,6 +29,7 @@ export interface RoomGame {
   name: string;
   password: string,
   number: number,
+  probs: boolean,
 
   game: Game
 }
@@ -47,6 +49,7 @@ export const initialRoom: Room = {
   name: '',
   password: '',
   number: 2,
+  probs: false,
 
   game: null
 }

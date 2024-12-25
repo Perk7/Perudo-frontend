@@ -5,7 +5,7 @@
    width="24"
    version="1.1"
    id="svg236"
-   sodipodi:docname="dice_icon_214818.svg"
+   sodipodi:docname="3.svg"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -43,5 +43,5 @@
   <path
      d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM8 9.5a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 8 9.5zm4 4a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 12 13.5zm4 4a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 16 17.5z"
      id="path234"
-     style="fill:#0d4136;fill-opacity:0.99607843" />
+     style="fill:#420909;fill-opacity:1" />
 </svg>

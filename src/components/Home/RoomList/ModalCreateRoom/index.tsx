@@ -10,10 +10,13 @@ interface props {
     roomsNames: string[]
 }
 
+const maximumPlayers = 8
+
 export default function ModalCreateRoom({ closeModal, roomsNames }: props) {
     const [roomName, setRoomName] = useState('');
     const [number, setNumber] = useState('2');
     const [password, setPassword] = useState('');
+    const [probabilities, setProbabilities] = useState(false);
 
     const [warning, setWarning] = useState('')
 
@@ -38,7 +41,8 @@ export default function ModalCreateRoom({ closeModal, roomsNames }: props) {
             name: roomName,
             password,
             number: +number,
-            player: { name, id }
+            player: { name, id },
+            probs: probabilities
         });
 
         navigate(`/room/${roomName}/${password}`);
@@ -53,9 +57,9 @@ export default function ModalCreateRoom({ closeModal, roomsNames }: props) {
         if (!value.length) return setNumber(value)
         if (+value < 2)
             return setNumber('2')
-        if (+value > 6)
-            return setNumber('6')
-        return setNumber(value)
+        if (+value > maximumPlayers)
+            return setNumber(maximumPlayers.toString())
+        return setNumber(value.toString())
     }
 
     return (
@@ -82,12 +86,21 @@ export default function ModalCreateRoom({ closeModal, roomsNames }: props) {
                 onChange={e => setPassword(e.target.value)}
             />
             <div className={styles.modal__form__numBlock}>
+                <label className={styles.modal__form__numLabel}>Отображение вероятностей: </label>
+                <input
+                    type="checkbox" id="roomProbs"
+                    className={styles.modal__form__checkbox}
+                    checked={probabilities}
+                    onChange={e => setProbabilities(e.target.checked)}
+                />
+            </div>
+            <div className={styles.modal__form__numBlock}>
                 <label className={styles.modal__form__numLabel}>Количество игроков: </label>
                 <input
                     type="number" id="roomNumber"
                     className={styles.modal__form__field + " " + styles.modal__form__field_number}
                     min={2}
-                    max={6}
+                    max={maximumPlayers}
                     value={number}
                     onChange={e => handleNumberChange(e.target.value)}
                 />

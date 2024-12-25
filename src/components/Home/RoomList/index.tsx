@@ -90,7 +90,10 @@ export default function RoomList({ authorized }: props) {
                     <li key={room.name}>
                         <button onClick={() => selectRoom(room)}>
                             <span className={styles.roomList__roomName}>{room.name}</span>
-                            <span className={styles.roomList__roomNumber}>{Object.keys(room.players).length}/{room.number}</span>
+                            <span className={styles.roomList__roomNumber}>
+                                {room.probs && <span className={styles.roomList__probsVisible} >%</span> }
+                                {Object.keys(room.players).length}/{room.number}
+                            </span>
                         </button>
                     </li>
                 ))}
